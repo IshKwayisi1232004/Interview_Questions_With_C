@@ -1,6 +1,6 @@
 ## What is the a versatile variable, volatile variable and auto variable?
 
-## * Auto Variable - when a local function is called an auto variable defined within the function is created automatically. However, when the function ends, the variable is destroyed. 
+## Auto Variable - when a local function is called an auto variable defined within the function is created automatically. However, when the function ends, the variable is destroyed. 
   - Here is an example in code: 
 
         void test() {
@@ -21,3 +21,29 @@
     * Why not use another storage type?
       > If you used a static variable, it would persist forever... causing inefficient memory.
       > If you used a gloabl variable, it could be changed anywhere outside the function -> dangerous.
+      
+## Volatile Variable - tells the compiler the value of this variable can change any time. Influences outside of the code, can directly change the variable.
+  - Influences outside of the code can come in the form of:
+    * Hardware
+    * Interrupts
+    * Other threads (in RTOS or multi-core systems)
+  - Embedded System Use Case
+    * Imagine you want your hardware register to change based on sensor updates.
+
+          volatile int sensor_data;
+
+          void loop() {
+              while (sensor_data == 0) {
+                  // wait for new sensor data
+                  // without volatile, compiler might optimize this loop away
+              }
+              printf("New data: %d\n", sensor_data);
+          }
+
+    * The volatile variable within the code tells the compiler that sensor_data can change. Ensuring that the it sees the latest hardware value.
+    * Providing accurate behavior when external hardware changes the variable values.
+    * This is used for:
+      > Hardware registers
+      > Interrupt flags
+      > Shared memory
+  
