@@ -4,8 +4,10 @@
   - Here is an example in code: 
 
       void test() {
+
         auto int x = 10;  // 'auto' is optional
-        printf("%d", x);  
+        printf("%d", x);
+    
       }  
   - In this example, x is being called into the stack, but only exists within the function variable (i.e. this is a private variable). Once the last line of the function is 
     complete, variable "x" is deleted from the stack.
