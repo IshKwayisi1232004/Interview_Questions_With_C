@@ -44,6 +44,12 @@
     * Providing accurate behavior when external hardware changes the variable values.
     * This is used for:
       > Hardware registers
+      
       > Interrupt flags
+      
       > Shared memory
   
+## Register Variable - tells the compiler the variable will be used frequently. Informing that the variable should be stored in a CPU register, rather than RAM. Allowing for faster access for the variable. 
+  - However, it should be noted that modern compilers ignore this because they are more reliable and effiecient in managing registers in comparison to hunmans.
+  - This is used in embedded systems for tight loops or ISR routines
+  - 
