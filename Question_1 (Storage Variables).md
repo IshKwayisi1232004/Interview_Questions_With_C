@@ -3,12 +3,11 @@
 ## * Auto Variable - when a local function is called an auto variable defined within the function is created automatically. However, when the function ends, the variable is destroyed. 
   - Here is an example in code: 
 
-      void test() {
-
-        auto int x = 10;  // 'auto' is optional
-        printf("%d", x);
+        void test() {
+          auto int x = 10;  // 'auto' is optional
+          printf("%d", x);
+        }
     
-      }  
   - In this example, x is being called into the stack, but only exists within the function variable (i.e. this is a private variable). Once the last line of the function is 
     complete, variable "x" is deleted from the stack.
   - The main reason why we use an auto variable is because its temporary, fast, and private for sitautions where we want:
