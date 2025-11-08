@@ -2,6 +2,7 @@
 
 ## * Auto Variable - when a local function is called an auto variable defined within the function is created automatically. However, when the function ends, the variable is destroyed. 
   - Here is an example in code: 
+
       void test() {
         auto int x = 10;  // 'auto' is optional
         printf("%d", x);  
