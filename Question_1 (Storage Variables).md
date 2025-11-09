@@ -52,4 +52,12 @@
 ## Register Variable - tells the compiler the variable will be used frequently. Informing that the variable should be stored in a CPU register, rather than RAM. Allowing for faster access for the variable. 
   - However, it should be noted that modern compilers ignore this because they are more reliable and effiecient in managing registers in comparison to hunmans.
   - This is used in embedded systems for tight loops or ISR routines
-  - 
+  - Stored in a CPU Register instead of RAM for faster acceess
+  - Ex:
+
+        void compute() {
+          register int i;
+          for (i = 0; i < 1000; i++) {
+            // do something fast
+          }
+        }
